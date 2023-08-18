@@ -3,7 +3,7 @@ let total = 0;
 const multiplicacion = (producto, cantidad) => producto * cantidad;
 
 let producto = prompt("Seleccione el producto que desea comprar:\n1- Conjunto Victoria's Secret. ($7.000.-)\n2- Pack x6 Less Calvin Klein. ($5.000.-) \n3- Pack x3 Less Pink. ($3.000.-) \n4- Bikini Animal Print ($6.000.-) \n0- ir a Pagar.");
-while (producto != 0) {
+while (producto != "0") {
     switch (producto) {
         case "1":
             cant = prompt("ingrese la cantidad de unidades que desea");
