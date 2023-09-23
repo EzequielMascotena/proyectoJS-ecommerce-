@@ -1,60 +1,39 @@
-/* codigo afterclass
+let total = 0;
 
-function filtrarPrecioMax(precioMaximo){
-    const filtrados = productos.filter ((producto) => producto.precio <=precioMaximo);
-    console.table(filtrados);
-}
-
-let precio = parseFloat(prompt("ingrese un rango maximo del precio que desea (0-salir)"))
-while (precio!=0){
-    filtrarPrecioMax(precio);
-    precio = parseFloat(prompt("ingrese un rango maximo del precio que desea (0-salir)"))
-}*/
+let contProd = document.getElementById("misProd");
 
 let carrito = [];
 
-
-
-let total = 0;
-const multiplicar = (precio, cant) => precio * cant;
-
-let opciones ="";
-productos.forEach(producto => {
-    opciones += `${producto.id}- ${producto.nombre} $${producto.precio}.-\n`
-});
-
-
-let compra = prompt(`${opciones}\n 0- ir a Pagar.`);
-while (compra != "0") {
-    switch (compra) {
-        case "1":
-            cant = prompt("ingrese la cantidad de unidades que desea");
-            total += multiplicar(5600, cant);
-            break;
-        case "2":
-            cant = prompt("ingrese la cantidad de unidades que desea");
-            total += multiplicar(5600, cant);
-            break;
-        case "3":
-            cant = prompt("ingrese la cantidad de unidades que desea");
-            total += multiplicar(5600, cant);
-            break;
-        case "4":
-            cant = prompt("ingrese la cantidad de unidades que desea");
-            total += multiplicar(5600, cant);
-            break;
-        case "5":
-            cant = prompt("ingrese la cantidad de unidades que desea");
-            total += multiplicar(6000, cant);
-            break;
-        case "6":
-            cant = prompt("ingrese la cantidad de unidades que desea");
-            total += multiplicar(6000, cant);
-            break;
-        default:
-            alert("el num que ingreso no es valido");
+function renderizarProds(listaProds) {
+    contProd.innerHTML ="";
+    for (const producto of listaProds) {
+        contProd.innerHTML += `
+    <div class="card" style="width: 18rem;">
+        <img src="${producto.foto}" class="card-img-top" alt="${producto.alt}">
+        <div class="card-body">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">${producto.descripcion}<h5 class="card-title">$${producto.precio}.-</h5></p>
+            <a href="#" class="btn btn-primary"> Comprar </a>
+            <button id=${producto.id} class="btn btn-primary compra">Comprar</button>
+        </div>
+    </div>
+    `;
     }
-    compra = prompt(`${opciones}\n 0- ir a Pagar.`);
+
+    let botones = document.getElementsByClassName("compra");
+    for (const boton of botones) {
+        boton.onclick = () =>{
+            const prodACarro = listaProds.find ((producto)=>producto.id == boton.id);
+            agregarAlCarrito(prodACarrito);
+        }
+    }
 }
 
-alert("El total de su compra es $" + total)
+renderizarProds(productos);
+
+function agregarAlCarrito (producto) {
+    carrito.push (producto);
+    //agregar el producto a la tabla del carro
+
+    const subTotal = carrito.reduce ((acum, prod) => acum + prod.precio, 0 );
+}
