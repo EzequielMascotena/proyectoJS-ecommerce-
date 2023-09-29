@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- toastify -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Herrard | INICIO</title>
 </head>
 
@@ -35,35 +38,91 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><img src="./img/carrito.png"
-                                    alt="carrito de compras"></a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </nav>
-        <h1>Distribuidor Oficial Bosch</h1>
+        <div class="container text-center ">
+            <h1>Distribuidor Oficial Bosch</h1>
+            <!-- CARRITO -->
+            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"><img src="./img/carrito.png" alt="carrito de compras"></a></button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">CARRITO</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <section>
+                        <h4>Tu carrito:</h4>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaCarrito">
+                                <!-- aqui tabla carrito -->
+                            </tbody>
+                        </table>
+                        <h4 id="total">EL CARRITO ESTA VACIO</h4>
+                    </section>
+                    <section>
+                        <button class='btn btn-success' id="finalizar">Finalizar Compra</button>
+                        <button class='btn btn-danger' id="vaciar">Vaciar carrito</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
     </header>
 
     <main>
         <section class="container-fluid">
             <h2>Productos destacados</h2>
-            <article id="misProd" class="row container-fluid">
-            </article>
-            <button>Finalizar Compra</button>
-        </section>
+            <section id="misprods" class="row container-fluid">
+                <!-- productos -->
+            </section>
     </main>
 
     <footer>
 
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <!-- sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- toastify -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- misJS -->
     <script src="baseDeDatos.js"></script>
     <script src="codigo.js"></script>
 </body>
 
 </html>
+
+
+
+<!-- FORMULARIO 
+            <section>
+            <h3>Suscribete</h3>
+            <form id="formulario">
+                <label for="nombre">
+                    Nombre
+                    <input type="text" name="nombre" id="nombre" placeholder="Juana" />
+                </label>
+                <label for="email">
+                    Email:
+                    <input type="email" name="email" id="email" placeholder="juani@gmail.com" />
+                    <small id="mensaje"></small>
+                </label>
+                <input type="submit" value="enviar" class="btn btn-success" />
+                <input type="button" value="borrar" class="btn btn-danger" onclick="borrarCampos()">
+            </form>
+        </section> -->
