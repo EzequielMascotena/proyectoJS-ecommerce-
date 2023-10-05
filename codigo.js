@@ -3,6 +3,10 @@ const tablaCarrito = document.getElementById("tablaCarrito");
 const btnFinalizar = document.getElementById("finalizar");
 const btnVaciar = document.getElementById("vaciar");
 
+const campoNombre= document.getElementById("nombre")
+const campoEmail= document.getElementById("email")
+const form = document.getElementById("formulario");
+
 
 //search buscador
 const buscar = document.getElementById("formBuscar").addEventListener("submit", function (event) {
@@ -26,13 +30,13 @@ function obtenerProductos() {
                     <div id="carousel${producto.id}" class="carousel slide" data-bs-theme="dark" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="5000">
-                                <img src="${producto.foto}" class="d-block w-100" alt="${producto.alt}">
+                                <img src="${producto.foto}" height="262px" class="d-block w-100 overflow-hidden" alt="${producto.alt}">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000">
-                                <img src="${producto.foto1}" class="d-block w-100" alt="${producto.alt}">
+                                <img src="${producto.foto1}" height="262px" class="d-block w-100 overflow-hidden" alt="${producto.alt}">
                             </div>
                             <div class="carousel-item" data-bs-interval="5000">
-                                <img src="${producto.foto2}" class="d-block w-100" alt="${producto.alt}">
+                                <img src="${producto.foto2}" height="262px" class="d-block w-100 overflow-hidden" alt="${producto.alt}">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carousel${producto.id}" data-bs-slide="prev">
@@ -44,7 +48,6 @@ function obtenerProductos() {
                             <span class="visually-hidden">Next</span>
                         </button>
                     </div>
-
 
                     <div class="card-body">
                         <h5 class="card-title">${producto.nombre}</h5>
@@ -84,7 +87,6 @@ obtenerProductos();
 
 
 
-
 //iniciar carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -92,15 +94,16 @@ function dibujarTablaCarrito(carrito) {
     let subTotal = 0;
     tablaCarrito.innerHTML = "";
     for (const producto of carrito) {
+
         tablaCarrito.innerHTML += `
         <tr>
-            <th>${producto.id}</th>
+            <th>${producto.cantidad}</th>
             <th>${producto.nombre}</th>
-            <th>$${producto.precio}</th>
+            <th>$${producto.subtotal}</th>
             <th><button id=${producto.id} type="button" class="btn-close eliminar" aria-label="Close"></button></th>
         </tr>
         `;
-        subTotal += producto.precio;
+        subTotal += producto.subtotal;
     }
     if (carrito != 0) {
         document.getElementById("total").innerText = "Total a pagar: $ " + subTotal + ".-";
@@ -114,13 +117,21 @@ function recordarCarrito() {
     asignarBtnsEliminar();
 }
 
-if (carrito.length != 0) {
-    recordarCarrito();
-}
+carrito.length != 0 ? recordarCarrito() : null;
+
 
 //carrito
 function agregarAlCarrito(producto) {
-    carrito.push(producto);
+    const prodEnCarrito =carrito.find((prod) =>prod.id === producto.id)
+    if (prodEnCarrito){
+        prodEnCarrito.cantidad += 1;
+        producto.subtotal += producto.precio;
+    } else {
+        producto.cantidad = 1;
+        producto.subtotal = producto.precio;
+        carrito.push(producto);
+    }
+
     // AVISO
     Toastify({
         text: `Agregaste ${producto.nombre} al carrito.`,
@@ -180,3 +191,78 @@ btnFinalizar.onclick = () => {
     document.getElementById("total").innerText = "EL CARRITO ESTA VACIO"
     localStorage.removeItem("carrito");
 }
+
+
+// Formulario de Suscripcion
+    // Validaciones basicas
+
+campoNombre.oninput = () => {
+    if(campoNombre.value.length < 3){
+        campoNombre.style.color ="red";
+    } else {
+        campoNombre.style.color ="black";
+    }
+}
+
+campoEmail.onchange = () => {
+    const mensajeError = document.getElementById("msj");
+
+    if ((!campoEmail.value.includes("@")) || (!campoEmail.value.includes("."))) {
+        mensajeError.innerText = "El Email es inválido.";
+        mensajeError.style.color = "red";
+    } else {
+        mensajeError.innerText = "";
+    }
+}
+
+
+    // validacion y envio de form
+    function validar(event) {
+        event.preventDefault();
+    
+        if (campoNombre.value.trim() === "" || campoEmail.value.trim() === "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'POR FAVOR, COMPLETE TODOS LOS CAMPOS.',
+                footer: 'Falta completar el Nombre y/o el Email.'
+            });
+        } else {
+            const URLMAIL = 'https://jsonplaceholder.typicode.com/posts';
+    
+            fetch(URLMAIL, {
+                method: 'POST',
+                body: JSON.stringify({
+                    body: Object.fromEntries(new FormData(form)),
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+            .then((response) => {
+                if (response.ok) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Gracias por tu suscripción!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    campoNombre.value="";
+                    campoEmail.value="";
+                } else {
+                    console.error("Error al enviar el formulario.");
+                }
+                return response.json();
+            })
+            .then((json) => {
+                console.log(json);
+            })
+            .catch(error => {
+                console.error("Error en la solicitud: " + error);
+            });
+        }
+    }
+    
+    form.addEventListener("submit", validar);
+    

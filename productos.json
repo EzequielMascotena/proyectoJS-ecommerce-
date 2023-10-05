@@ -59,6 +59,66 @@
             "alt": "amoladora gws",
             "descripcion": "La Amoladora Angular Bosch GWS 2200-180 VULCANO, posee 2200 Watts de potencia siendo la solución para realización de cortes y desbaste en todos los tipos de materiales.",
             "precio": 110000
+        },
+        {
+            "id": 7,
+            "nombre": "Fresadora Bosch Gkf 12V-8",
+            "foto": "./img/fresadora.webp",
+            "foto1": "./img/fresadora1.webp",
+            "foto2": "./img/fresadora2.webp",
+            "alt": "Fresadora inalam",
+            "descripcion": "La Fresadora inalámbrica de 12V Bosch GKF 12V-8 tiene motor Brushless, sin escobillas de carbón, que no necesita mantenimiento, ofrece el doble de vida útil y una mayor autonomía.",
+            "precio": 105000
+        },
+        {
+            "id": 8,
+            "nombre": "Detector De Materiales D-Tect 120",
+            "foto": "./img/detector.webp",
+            "foto1": "./img/detector1.webp",
+            "foto2": "./img/detector2.webp",
+            "alt": "Detector De Materiales",
+            "descripcion": "detector de materiales d-tect 120 bosch, con una precisión del centro del objeto: ± 10 mm. Desactivación automática a los 5 min. Solo necesita 4 pilas AA.",
+            "precio": 127000
+        },
+        {
+            "id": 9,
+            "nombre": "Lijadora Orbital Bosch Gss 140 220V",
+            "foto": "./img/lijadora220.webp",
+            "foto1": "./img/lijadora2201.webp",
+            "foto2": "./img/lijadora2202.webp",
+            "alt": "Lijadora Orbital 220v",
+            "descripcion": "La Lijadora Orbital de Palma GSS 140, con 220 W de potencia es la combinación de rendimiento y comodidad que cabe en la palma de tu mano. Con una base de aluminio y goma resistente es ideal para lijar paredes.",
+            "precio": 38000
+        },
+        {
+            "id": 10,
+            "nombre": "Atornillador Taladro Bosch Gsr 7-14 E 220V",
+            "foto": "./img/taladro220.webp",
+            "foto1": "./img/taladro2201.webp",
+            "foto2": "./img/taladro2202.webp",
+            "alt": "Atornillador Taladro 220v",
+            "descripcion": "El Taladro Atornillador Bosch GSR 7-14 E es el único del mercado que posee control de torque de fuerza (24+1), embrague de seguridad y cable de 4 metros.",
+            "precio": 55000
+        },
+        {
+            "id": 11,
+            "nombre": "Nivel Laser Gll 2-12 con funda y soporte.",
+            "foto": "./img/nivel.webp",
+            "foto1": "./img/nivel1.webp",
+            "foto2": "./img/nivel2.webp",
+            "alt": "Nivel Laser",
+            "descripcion": "Nivel láser de excelente calidad, necesita solo 2 pilas AA. Viene con 1 bolsa de protección y 1 soporte articulado mm02.",
+            "precio": 49000
+        },
+        {
+            "id": 12,
+            "nombre": "Sierra Circular Bosch Gks 150 Mas Bolsa 220V",
+            "foto": "./img/circular220.webp",
+            "foto1": "./img/circular2201.webp",
+            "foto2": "./img/circular2202.webp",
+            "alt": "sierra circular 220v",
+            "descripcion": "La Sierra Circular Bosch GKS 150, con 1500W de potencia, es ideal para las principales aplicaciones y con un precio que cabe en su bolsillo. Cuenta con recurso contra bloqueo para más seguridad, además de empuñadura auxiliar.",
+            "precio": 76000
         }
     ]
 }
