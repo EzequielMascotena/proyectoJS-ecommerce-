@@ -1,0 +1,64 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Lijadora Orbital Bosch Gss 18V-10",
+            "foto": "./img/lijadora.webp",
+            "foto1": "./img/lijadora1.webp",
+            "foto2": "./img/lijadora2.webp",
+            "alt": "lijadora orbital",
+            "descripcion": "La lijadora orbital inalámbrica de 18V Bosch GSS 18V-10 es la primera lijadora orbital que se puede manejar con una sola mano.\nIdeal para ebanistas, carpinteros, instaladores de muebles, renovadores, decoradores y artesanos.",
+            "precio": 65000
+        },
+        {
+            "id": 2,
+            "nombre": "Rotomartillo Sds-Plus 800W",
+            "foto": "./img/rotomartillo.webp",
+            "foto1": "./img/rotomartillo1.webp",
+            "foto2": "./img/rotomartillo2.webp",
+            "alt": "rotomartillo",
+            "descripcion": "El más rápido para la utilización diaria.\nBloqueo de percusión para perforar acero y madera y esfera de articulación para evitar roturas del cable.\nPortacarbones rotativo: la misma potencia en los 2 sentidos.",
+            "precio": 114000
+        },
+        {
+            "id": 3,
+            "nombre": "Taladro Bosch Gsb 185-Li 1B+Malet",
+            "foto": "./img/taladro.webp",
+            "foto1": "./img/taladro1.webp",
+            "foto2": "./img/taladro2.webp",
+            "alt": "taladro inalam",
+            "descripcion": "El Taladro percutor y atornillador inalámbrico GSB 185-LI de Bosch es rápido, liviano y cómodo de usar, fue desarrollado para trabajos exigentes y ofrece un excelente desempeño.",
+            "precio": 143000
+        },
+        {
+            "id": 4,
+            "nombre": "Sierra Caladora Bosch Gst 18 V-Li",
+            "foto": "./img/caladora.jpg",
+            "foto1": "./img/caladora1.webp",
+            "foto2": "./img/caladora2.webp",
+            "alt": "sierra caladora inalam",
+            "descripcion": "La sierra caladora inalámbrica de 18V Bosch GST 18V-LI es la más compacta y rápida de su categoría y viene con 6 velocidades variables para ajuste de acuerdo con el trabajo que será realizado",
+            "precio": 105000
+        },
+        {
+            "id": 5,
+            "nombre": "Sierra Circular Bosch Gks 12V-26",
+            "foto": "./img/circular.webp",
+            "foto1": "./img/circular1.webp",
+            "foto2": "./img/circular2.webp",
+            "alt": "sierra circular inalam",
+            "descripcion": "La Sierra circular inalámbrica de 12V Bosch GKS 12V-26 es súper robusta y potente; con 1.400 RPM ofrece un alto rendimiento en aplicaciones y cortes rectos en madera y plásticos.",
+            "precio": 120000
+        },
+        {
+            "id": 6,
+            "nombre": "Amoladora Bosch Gws 2200-180 Vulcano 2200W",
+            "foto": "./img/amoladora.webp",
+            "foto1": "./img/amoladora1.webp",
+            "foto2": "./img/amoladora2.webp",
+            "alt": "amoladora gws",
+            "descripcion": "La Amoladora Angular Bosch GWS 2200-180 VULCANO, posee 2200 Watts de potencia siendo la solución para realización de cortes y desbaste en todos los tipos de materiales.",
+            "precio": 110000
+        }
+    ]
+}

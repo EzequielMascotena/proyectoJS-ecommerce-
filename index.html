@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-dark-subtle">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
@@ -25,27 +25,35 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Productos</a>
+                            <a class="nav-link active fs-3" aria-current="page" href="#">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Preguntas Frecuentes</a>
+                            <a class="nav-link fs-3" href="#">Preguntas frecuentes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
+                            <a class="nav-link fs-3" href="#">Contacto</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex m-5" role="search" id="formBuscar">
+                        <input class="form-control me-2" type="search" id="input" placeholder="Buscar"
+                            aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
         </nav>
-        <div class="container text-center ">
-            <h1>Distribuidor Oficial Bosch</h1>
+
+        <div class="container-fluid text-center row">
+            <div class="col-xs-12 col-md-4 mt-4">
+                <h1>Distribuidor Oficial Bosch</h1>
+            </div>
+            <div class="col-xs-12 col-md-7 mt-4"></div>
             <!-- CARRITO -->
-            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight"><img src="./img/carrito.png" alt="carrito de compras"></a></button>
+            <div class="btn btn-light col-xs-12 col-md-1 mt-4">
+                <h4>Mi Carrito</h4>
+                <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"><img src="./img/carrito.png" alt="carrito de compras"></a></button>
+            </div>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                 aria-labelledby="offcanvasRightLabel">
@@ -55,11 +63,11 @@
                 </div>
                 <div class="offcanvas-body">
                     <section>
-                        <h4>Tu carrito:</h4>
+                        <h4>Mi carrito:</h4>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Cant</th>
                                     <th>Nombre</th>
                                     <th>Precio</th>
                                 </tr>
@@ -77,21 +85,75 @@
                 </div>
             </div>
         </div>
-
-
     </header>
 
     <main>
         <section class="container-fluid">
             <h2>Productos destacados</h2>
-            <section id="misprods" class="row container-fluid">
+            <section id="misprods" class="row container-fluid gap-3 mx-auto p-4">
                 <!-- productos -->
             </section>
     </main>
 
+
     <footer>
+        <div class="container-fluid">
+            <div class="row p-4 bg-dark text-white text-center">
+                <div class="col-xs-12 col-md-4">
+                    <a href="./index.html"><img src="./img/logo.png" alt="logo" width="150px" height="150px"></a>
+                    <h5>Bosch Distribuidor Oficial</h5>
+                    <div>
+                        <a href="https://www.facebook.com/" target="_blank"><img
+                                src="./img/Facebook-f_Logo-Blue-Logo.wine.svg" alt="link facebook" width="50px"
+                                height="50px"></a>
+                        <a href="https://www.instagram.com/" target="_blank"><img
+                                src="./img/Instagram-Glyph-Color-Logo.wine.svg" alt="link instagram" width="50px"
+                                height="50px"></a>
+                        <a href="https://www.whatsapp.com" target="_blank"><img
+                                src="./img/WhatsApp-GreenSquare-Logo.wine.svg" alt="link whatsapp" width="50px"
+                                height="50px"></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4 mt-4">
+                    <div class="mb-2">
+                        <a class="text-white text-decoration-none fs-2" href="">Productos</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-white text-decoration-none fs-2" href="">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="mb-2">
+                        <a class="text-white text-decoration-none fs-2" href="">Contacto</a>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-4 mt-4">
+                    <p class="fs-3">Suscribete</p>
+                    <form id="formulario">
+                        <div class="mb-2 p-1">
+                            <label for="nombre">
+                                Nombre:
+                                <input type="text" name="nombre" id="nombre" placeholder="NOMBRE y APELLIDO" />
+                            </label>
+                        </div>
+                        <div class="mb-2 p-1">
+                            <label for="email">
+                                Email:
+                                <input type="email" name="email" id="email" placeholder="tuMail@gmail.com" />
+                                <small id="mensaje"></small>
+                            </label>
+                        </div>
+                        <div class="mb-2 p-1">
+                            <input type="submit" value="enviar" class="btn btn-outline-success" />
+                            <input type="button" value="resetear" class="btn btn-outline-warning"
+                                onclick="borrarCampos()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     </footer>
+
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -101,28 +163,7 @@
     <!-- toastify -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!-- misJS -->
-    <script src="baseDeDatos.js"></script>
     <script src="codigo.js"></script>
 </body>
 
 </html>
-
-
-
-<!-- FORMULARIO 
-            <section>
-            <h3>Suscribete</h3>
-            <form id="formulario">
-                <label for="nombre">
-                    Nombre
-                    <input type="text" name="nombre" id="nombre" placeholder="Juana" />
-                </label>
-                <label for="email">
-                    Email:
-                    <input type="email" name="email" id="email" placeholder="juani@gmail.com" />
-                    <small id="mensaje"></small>
-                </label>
-                <input type="submit" value="enviar" class="btn btn-success" />
-                <input type="button" value="borrar" class="btn btn-danger" onclick="borrarCampos()">
-            </form>
-        </section> -->
